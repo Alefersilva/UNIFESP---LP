@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, e;
+    float a, b, d;
+    scanf("%d", &n);
+    for(e=1;e<=n;e++) {
+    scanf("%f %f", &a, &b);
+    if (b>0) {
+        d=a/b;
+        printf("%.1f\n", d);
+    }
+    else if (b == 0) {
+        printf("divisao impossivel\n");
+    } 
+    else {
+        d=a/b;
+        printf("%.1f\n", d);    
+    }
+    }
+    return 0;
+}
