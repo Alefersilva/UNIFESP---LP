@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int i, j, m[3][3];
+    printf("Digite os valores para preencher a matriz 3x3: \n");
+    for (i = 0; i < 3; i++){
+        for (j = 0; j < 3; j++)
+          scanf("%d", &m[i][j]);  
+    }
+    printf("A matriz 3x3 preenchida eh:\n");
+        for (i = 0; i < 3; i++){
+        for (j = 0; j < 3; j++)
+          printf("%d ", m[i][j]);  
+        printf("\n");
+    }
+    return 0;
+}
