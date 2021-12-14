@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+int main (void) {
+ 
+  int *v, i, num_posicoes = 5000;
+  v = (int *) malloc(num_posicoes * sizeof(int));
+  for (i = 0; i < num_posicoes; i++) {
+      v[i] = i;
+  }
+  printf("\n*-* Valores do vetor dinamico *-*\n");
+  for (i = 0; i < num_posicoes; i++) {
+    printf("%d\n", v[i]);
+  }
+  free(v);
+  getch();
+  return 0;
+}
