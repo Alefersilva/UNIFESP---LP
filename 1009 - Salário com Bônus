@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main()
+{
+    char nome [12];
+    double salarioFixo, vendasEfetuadas, comissao, salarioFinal;
+    scanf("%s", nome);
+    scanf("%lf%lf", &salarioFixo, &vendasEfetuadas);
+    comissao = vendasEfetuadas * 0.15;
+    salarioFinal = salarioFixo + comissao;
+    printf("TOTAL = R$ %.2lf\n", salarioFinal);
+    return 0;
+}
