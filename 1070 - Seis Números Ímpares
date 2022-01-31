@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    int X, impar;
+    
+    scanf("%d", &X);
+    impar = 0;
+    while (impar < 6) {
+        if (X%2 != 0) {
+            printf("%d\n", X);
+            impar++;
+        }
+        X++;
+    }
+    return 0;
+}
