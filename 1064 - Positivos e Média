@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int i, p = 0;
+    double m, s = 0, x;
+     for (i = 1; i <= 6; i++) {
+        scanf("%lf", &x);
+        if (x > 0.0) {
+            p++;
+            s = s + x;
+        }
+     }
+    m = s / p;
+    printf("%d valores positivos\n", p);
+    printf("%.1lf\n", m);
+    return 0;
+}
