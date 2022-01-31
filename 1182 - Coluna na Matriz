@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    double M[12][12];
+    int C, i, j;
+    char op[5];
+    double s = 0.0;
+    
+    scanf("%d", &C);
+    scanf("%s", &op);
+    for(i = 0; i < 12; i++) {
+        for (j = 0; j < 12; j++)
+        scanf("%lf", &M[i][j]);
+        }
+    for(i = 0; i < 12; i++) {
+        s += M[i][C];
+    }
+        if(op[0] == 'M') s = s / 12.0;
+        printf("%.1lf\n", s);
+    return 0;
+}
