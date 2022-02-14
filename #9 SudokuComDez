@@ -1,0 +1,76 @@
+#include <stdio.h>
+
+void digito(int * dig) {
+    int i;
+    for (i = 0; i < 10; i++) {
+        dig[i] = 0;
+    }
+}
+
+int validarLinCol(int m[9][9], int index, int * dig){
+    int i, j;
+    // verificar linhas e colunas
+    for(i = 0; i < 9; i++) {
+        for(j = 0; j < 9; j++) {
+            if (index) {
+                dig[m[i][j]]++; 
+                if(dig[m[i][j]] > 1) {
+                    return 1; // retorna falso caso na array de digitos tenha mais que um elemento igual
+                    }
+            }
+            else { // caso seja falso, ou seja temos um elemento apenas
+            dig[m[j][i]]++;
+            if (dig[m[j][i]] > 1) {
+                return 1; // se encontrado um indice que tem mais de um elemento na lista dig retorna falso
+                }
+            }
+        }
+        digito(dig);
+        }
+        return 0;
+}
+
+int validaQuadrante(int m[9][9], int numero1, int final, int numero2, int final2, int * dig) {
+    int i, j;
+    for(i = numero1; i < final; i++) {
+        for(j = numero2; j < final2; j++) {
+            dig[m[i][j]]++;
+            if(dig[m[j][i]] > 1) { // caso haja mais de 1 numero repetido retorna falso
+            return 1;
+            }
+        }
+    }
+    digito(dig);
+    return 0;
+    }
+
+int main(void) {
+    int n, mat[9][9], c, num[10], invalido, i, j;
+    scanf("%i", &n);
+    for (c = 1; c <= n; c++) {
+        // iteracao para receber os numeros da tabela 9x9
+        for (i = 0; i < 9; i++) {
+            digito(num);
+            for (j = 0; j < 9; j++) {
+                scanf("%i", &mat[i][j]);
+                mat[i][j]--;
+            }
+        }
+        // confere linha e coluna e salva na variavel invalido      
+        invalido = validarLinCol(mat, 1, num) + validarLinCol(mat, 0, num);
+        for(i = 0; i < 9; i += 3) {
+            for (j = 0; j < 9; j += 3) {
+                // confere o quadrante, passando os elementos iniciais e finais dos for loops para conferir 
+                invalido += validaQuadrante(mat, i, i + 3, j, j + 3, num);
+            }
+        }
+        printf("Instancia %d\n", c);
+        if(invalido) { 
+            printf("NAO\n\n"); 
+        }
+        else {
+            printf("SIM\n\n");
+        }
+    }
+    return 0;
+}
